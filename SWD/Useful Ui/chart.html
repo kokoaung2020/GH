@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Chart Js Text
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart" width="400px" height="400px"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const labels = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+        ];
+      
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45,50],
+            tension: 0,
+          },
+          {
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 234, 162)',
+            borderColor: 'rgb(255, 44, 177)',
+            data: [0, 30, 5, 20, 20, 10, 5,20],
+            tension: 0,
+          }
+        ]
+        };
+
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+      </script>
+</body>
+</html>

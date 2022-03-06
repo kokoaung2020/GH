@@ -1,0 +1,17 @@
+{
+    "name": "koko/app",
+    "authors": [
+        {
+            "name": "kokoaung",
+            "email": "koko@gmail.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.53"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+}

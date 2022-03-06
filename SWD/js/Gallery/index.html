@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #upload{
+            display: none;
+        }
+        #uploader{
+            width: 900px;
+            margin: 50px auto 0 auto;
+            background: #e3e3e3;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        #uploader img{
+            width: 100px;
+        }
+        #gallery{
+            width: 900px;
+            margin: 50px auto 0 auto;
+            columns: 3 250px;
+        }
+        .gallery-img{
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="uploader">
+        <img src="img/upload.png" alt="">
+    </div>
+    <input type="file" id="upload" accept="image/jpg,image/png,image/jpeg" multiple>
+    <div id="gallery"></div>
+
+    <script>
+        let upload = document.getElementById("upload");
+        let gallery = document.getElementById("gallery");
+        let preview = document.getElementById("preview");
+        let uploader = document.getElementById("uploader");
+
+        uploader.addEventListener("click",function(){
+            upload.click();
+        });
+
+        upload.addEventListener("change",function(){
+            let photo = this.files;
+            console.log(photo);
+
+            for(i=0;i<photo.length;i++){
+
+            const reader = new FileReader();
+
+            reader.addEventListener("load",function(){
+                //console.log(reader.result);
+                // preview.src = reader.result;
+                addToGallery(reader.result);
+            });
+
+            reader.readAsDataURL(photo[i]);
+            console.log(photo[i]);
+            }
+            
+        });
+
+        function addToGallery(src){
+            let img = new Image();
+            img.src = src;
+            img.classList = "gallery-img";
+            gallery.appendChild(img);
+        }
+    </script>
+</body>
+</html>

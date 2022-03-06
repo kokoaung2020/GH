@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #f5f5f5;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            transition: 0.5s;
+        }
+        header:hover{
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+        .brand{
+
+        }
+        .brand a{
+            font-size: 1.5rem;
+            font-weight: bolder;
+        }
+        .mobile-btn{
+            display: none;
+            background-color: deepskyblue;
+            color: #ffffff;
+            padding: 10px 15px;
+            width: 50px;
+            text-align: center;
+            border: none;
+            
+        }
+        .mobile-btn:focus{
+            outline: none;
+        }
+        .nav{
+            
+        }
+        .nav-list{
+            padding: 0;
+        }
+        .nav-list li{
+            display: inline-block;
+            list-style-type: none;
+        }
+        .nav-item{
+            background-color: deepskyblue;
+            color: #ffffff;
+            padding: 10px 15px;
+            width: 120px;
+            display: inline-block;
+            text-align: center;
+        }
+        header a{
+            color: green;
+            text-decoration: none;
+        }
+        .show-nav{
+            display: block;
+            animation: showSlow 0.5s;
+            position: absolute;
+            z-index: -1;
+            top: 58px;
+            right: 0;
+            background: #ffffff;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes showSlow {
+            0%{
+                transform: translateY(-100px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        @media screen and (max-width: 480px) {
+            header{
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            .mobile-btn{
+                display: block;
+            }
+            .nav-list li{
+                display: block;
+            }
+            nav{
+                display: none;
+                width: 100%;
+            }
+            .nav-item{
+                width: 100%;
+                margin-bottom: 8px;
+            }
+            .nav-item:first-child{
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <a href="">MMSIT</a>
+        </div>
+        <button class="mobile-btn">
+    M
+        </button>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li>
+                    <a class="nav-item" href="#">Home</a>
+                </li>
+                <li>
+                    <a class="nav-item" href="#">About</a>
+                </li>
+                <li>
+                    <a class="nav-item" href="#">Service</a>
+                </li>
+                <li>
+                    <a class="nav-item" href="#">Gallery</a>
+                </li>
+                <li>
+                    <a class="nav-item" href="#">Contact us</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        let nav = document.querySelector("nav");
+        document.querySelector(".mobile-btn").addEventListener("click",()=>nav.classList.toggle("show-nav"));
+    </script>
+</body>
+</html>

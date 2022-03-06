@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+</head>
+<body>
+    <input type="text" id="cord">
+    <button onclick="saveCord()">Save</button>
+    <br>
+    <br>
+    <br>
+    <button onclick="run('C4')">C4</button>
+    <button onclick="run('D4')">D4</button>
+    <button onclick="run('E4')">E4</button>
+    <button onclick="run('F4')">F4</button>
+    <button onclick="run('G4')">G4</button>
+    <button onclick="run('A4')">A4</button>
+    <button onclick="run('B4')">B4</button>
+    <button onclick="run('C5')">C5</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        let cord = document.getElementById("cord");
+        let pianoMemory = [];
+        let list = document.getElementById("list");
+
+        function run(x){
+            const a = new Audio(`sound/${x}.mp3`);
+            a.play();
+            cord.value += x+",";
+        }
+
+        let m = ["C4","E4","B4","A4","C5","G4","D4","F4","E4","B4","C5"];
+        function runMemory(arr,delay=300){
+            let x = delay;
+            arr.map(function(el,index){
+                setTimeout(run,x,el);
+                x += delay;
+            });
+        }
+
+        function saveCord() {
+            let input = cord.value;
+            pianoMemory.push(input);
+            console.log(`${input} is save in memory.`);
+            cord.value = "";
+            list.innerHTML = "";
+            pianoMemory.map(function(el,index){
+                list.innerHTML += `<li>${el} <button onclick="rePlay(${index})">rePlay</button><br><br></li>`;
+            });
+        }
+
+        function rePlay(x) {
+            let current = pianoMemory[x].split(",");
+            current.pop();
+            runMemory(current);
+        }
+
+        document.addEventListener("keyup",function(e){
+           let current = e.keyCode;
+           if(current == 65){
+               run("C4");
+           }else if(current == 83){
+               run("D4");
+           }else if(current == 68){
+               run("E4");
+           }else if(current == 70){
+               run("F4");
+           }else if(current == 74){
+               run("G4");
+           }else if(current == 75){
+               run("A4");
+           }else if(current == 76){
+               run("B4");
+           }else if(current == 186){
+               run("C5");
+           }
+        });
+
+    </script>
+</body>
+</html>

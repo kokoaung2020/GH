@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Me {
+            name = "Ko Ko Aung";
+            age = 21;
+
+            //access modifier
+
+            #gf = "Ji Soo"; // private property
+
+            showGf() {
+                return `My Girlfriend is ${this.#gf}.`;
+            }
+            
+            introduction() {
+                return `My name is ${this.name} and age is ${this.age}.`;
+            }
+        }
+
+        class Reg{
+
+            constructor(name,age){
+                name = this.name;
+                age = this.age;
+                console.log(`This is constructor`);
+            }
+
+            //prototype method
+            get showBdy() {
+                let currentYear = 2021;
+                return currentYear-this.age;
+            }
+
+            //static method
+            static test(){
+                return `This is static method.`;
+            }
+        }
+
+    </script>
+</body>
+</html>

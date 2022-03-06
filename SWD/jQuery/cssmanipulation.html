@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .forText{
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        p{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p id="p">Min Ga lar</p>
+    <button class="btm">Click</button>
+    <button class="bta">WClick</button>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(".btm").click(function(){
+            let p = $("#p").css("color");   //get color
+            console.log(p);
+        });
+
+        $("#p").addClass("forText");   //removeClass toggleClass
+
+        $("#p").attr("class");      //bar class tay shi lal thi chin tar
+
+        $(".bta").click(function(){
+            let p = $("#p").width();   //dimensions
+            console.log(p);
+        });
+    </script>
+</body>
+</html>

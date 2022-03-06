@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <h4>To do list</h4>
+    <div class="todo">
+        <div class="input" id="addBox">
+            <input type="text" id="input">
+            <button id="addBtn" class="btn btn-add" onclick="addList()">Add</button>
+        </div>
+        <ul class="list" id="list">
+            
+        </ul>
+    </div>
+
+    <script>
+        let input = document.getElementById("input");
+        let list = document.getElementById("list");
+        let minTextLength = 3;
+        let i = 1;
+
+        function showListBackUp(text) {
+            list.innerHTML += `
+                <li class="list-item animate__animated animate__fadeInDown" id="list${i}">
+                    <button class="btn del-btn" onclick="deleteList(${i})">Delete</button>
+                    <button class="btn del-edit" onclick="editList(${i})">Edit</button>
+                    <span id="listText${i}">${text}</span>
+                </li><br>
+            `;
+            i++;
+        }
+
+        function showList(text) {
+            let li = document.createElement("li");
+            let content = document.createTextNode(text);
+            li.appendChild(content);
+            list.appendChild(li);
+            li.classList = "animate__animated animate__fadeInDown";
+        }
+
+        function deleteList(listId) {
+
+            let currentText = document.getElementById(`listText${listId}`).innerHTML;
+            let current = document.getElementById(`list${listId}`);
+            let deleteConfirm = confirm(`Are you sure want to delete list ${currentText}`);
+
+            if(deleteConfirm) {
+                list.removeChild(current);
+            }
+            else{
+                console.log("Delete Cancel");
+            }
+            
+        }
+
+        function editList(listId) {
+
+            let current = document.getElementById(`listText${listId}`);
+            let newText = prompt("Say Something",current.innerHTML);
+
+            if(textFilter(newText)) {
+                current.innerHTML = newText;
+            }
+        }
+
+        function textFilter(x) {
+            if(x){
+
+                if(x.length >= minTextLength) {
+
+                    return x;
+
+                }else{
+                    alert("Min text is 3");
+                    return false;
+                }
+            }else{
+                alert("Must not be empty");
+                return false;
+            }
+        }
+
+        function addList() {
+            //get
+            let inputText = textFilter(input.value);
+
+            if(inputText) {
+
+                //set
+                showList(inputText);
+                input.value = "";
+            }
+            
+        }
+    </script>
+</body>
+</html>

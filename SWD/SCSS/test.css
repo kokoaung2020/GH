@@ -1,0 +1,17 @@
+.one {
+  border-radius: 10px solid red;
+  margin: 100px 200px;
+  background-color: blue;
+  height: 100px;
+}
+
+.two h1 {
+  border-radius: 10px solid red;
+  margin: 100px 20px;
+  color: blue;
+}
+
+.two p {
+  font-size: 30px;
+}
+/*# sourceMappingURL=test.css.map */

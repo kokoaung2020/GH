@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline-block;
+        }
+        .square{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+        .square-rounded{
+            border-radius: 5px;
+        }
+        .triangle{
+            border: 50px solid #fff;
+            border-bottom-color: green;
+        }
+        .triangle-2{
+            border: 50px solid #fff;
+            border-bottom-color: green;
+            border-right-color: green;
+        }
+        .env{
+            border: 50px solid rgb(216, 212, 212);
+            border-top-color: blue;
+            border-bottom-width: 10px;
+        }
+        .hw{
+            width: 200px;
+            height: 50px;
+            position: relative;
+            background-color: blue;
+        }
+        .hw::before{
+            content: "";
+            position: absolute;
+            border: 25px solid blue;
+            border-left-color: #fff;
+            display: inline-block;
+        }
+        .hw::after{
+            content: "";
+            position: absolute;
+            left: 200px;
+            border: 25px solid #fff;
+            border-left-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="square">
+       
+    </div>
+    <div class="square square-rounded"></div>
+    <hr>
+    <div class="triangle"></div>
+    <div class="triangle-2"></div>
+    <div class="env"></div>
+    <hr>
+    <div class="hw"></div>
+</body>
+</html>

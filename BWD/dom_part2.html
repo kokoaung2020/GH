@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        h1{
+            border: 2px solid black;
+            width: 255px;
+        }
+
+        div{
+            margin-bottom: 20px;
+        }
+
+        input{
+            width: 150px;
+            margin-right: 5px;
+            height: 30px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="result">Text</h1>
+    <div>
+        <input type="text" name="" id="text"><button id="setText">Set Text</button>
+    </div>
+    <div>
+        <input type="color" name="" id="color"><button id="setColor">Set Color</button>
+    </div>
+    <div>
+        <input type="number" name="" id="size"><button id="setSize">Set Size</button>
+    </div>
+
+    <script>
+        document.querySelector("#setText").onclick = function() {
+            let x = document.querySelector("#text").value;
+            document.querySelector("#result").innerHTML = x;
+            document.querySelector("#text").value = "";
+            console.log(`You change text ${x}`);
+        }
+
+        document.querySelector("#setColor").onclick = function() {
+            let x = document.querySelector("#color").value;
+            document.querySelector("#result").style.color = x;
+            document.querySelector("#color").value = "";
+            console.log(`You change color ${x}`);
+        }
+
+        document.querySelector("#setSize").onclick = function() {
+            let x = document.querySelector("#size").value;
+            document.querySelector("#result").style.fontSize = x+"px";
+            document.querySelector("#size").value = "";
+            console.log(`You change size ${x}px`);
+        }
+    </script>
+</body>
+</html>

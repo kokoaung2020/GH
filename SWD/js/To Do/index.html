@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <br>
+    <ul id="list"></ul>
+    
+    <script>
+        let input = document.getElementById("input");
+        let list = document.getElementById("list");
+
+        let id = 1;
+        let k = Object.keys(localStorage);
+        k.sort();                               //a sin a tine si
+
+        if(localStorage.length>0){
+            id = Number(k[k.length-1])+1;
+        }
+
+        function save(x){
+            localStorage.setItem(id,x);
+            id++;
+        }
+
+        function addToList(x,y){
+            let li = document.createElement("li");
+            let text = document.createTextNode(" - "+x);
+            let btn = document.createElement("button");
+            let ebtn = document.createElement("button");
+            let btnText = document.createTextNode("Delete");
+            let ediText = document.createTextNode("Edit");
+            btn.appendChild(btnText);
+            btn.setAttribute("onclick",`del(${y})`);
+            
+            ebtn.appendChild(ediText);
+            ebtn.setAttribute("onclick",`edit(${y})`);
+            li.appendChild(ebtn);
+            li.appendChild(btn);
+            li.appendChild(text);
+            li.setAttribute("id",`list${y}`);
+            list.appendChild(li);
+            input.value = "";
+        }
+
+        function del(x){
+            console.log(x);
+            localStorage.removeItem(x);
+            let current = document.getElementById(`list${x}`);
+            current.remove();
+        }
+
+        function edit(x){
+            console.log(x);
+            let current = document.getElementById(`list${x}`);
+            let newText = prompt("Say Something",current.innerHTML);
+            
+        }
+
+        function showList(){
+            k.map(function(el){
+                addToList(localStorage.getItem(el),el);
+            });
+        }
+
+        document.addEventListener("keyup",function(e){
+            if(e.keyCode === 13){
+                let note = input.value;
+                addToList(note);
+                save(note);
+                console.log(note);
+            }
+        })
+
+        showList();
+
+        let mine = {
+        name : "ko ko aung",
+        age : 21,
+        status : false,
+        job : "programmer"
+    }
+    </script>
+</body>
+</html>

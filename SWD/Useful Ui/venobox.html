@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="venobox/venobox.min.css" type="text/css" media="screen" />
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+               <div class="my-3">
+                <a class="my-link" href="img/porkroast.jpg">
+                    <img src="img/sashimi.jpg" class="img-fluid" alt="image alt"/>
+                </a>
+               </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="venobox/venobox.min.js"></script>
+    <script>
+        new VenoBox();
+        new VenoBox({
+            selector: ".my-link"
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = ["Banana","Orange","Mango","Apple","Dragon Fruid"];
+        let number = [15,17,2,-3,6,2.1,100,3.5,0.5];
+        let apiData = [
+            {id:1,name:"Mg Mg",age:14,room:"a",donate:350},
+            {id:1,name:"Ko Ko",age:16,room:"c",donate:100},
+            {id:1,name:"Ka Ka",age:17,room:"b",donate:200},
+            {id:1,name:"Ma Ma",age:20,room:"a",donate:150},
+            {id:1,name:"Yu Yu",age:11,room:"c",donate:700},  
+        ];
+
+        let arr2 = apiData.map(function(el,index){
+            return {name : el.name, room : el.room};
+        });
+
+        let arr1 = arr.map(el=>el+"aaa");
+
+        let arr3 = apiData.map(el=>el.name);
+
+        let arr4 = arr.filter(el=>el.length>5);
+        let arr5 = apiData.filter(el=>el.room === "a").map(el=>el.name);
+
+        let arr6 = arr.reduce((x,y) => x+y);
+
+        let arr7 = apiData.reduce((x,y)=>x+y.donate,0);
+
+        let arr8 = apiData.filter(el=>el.room==="a").map(el=>el.donate).reduce((x,y) => x+y);
+        console.log(arr1);
+    </script>
+</body>
+</html>
